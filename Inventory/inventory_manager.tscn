@@ -1,0 +1,111 @@
+[gd_scene format=3 uid="uid://g80q814056p"]
+
+[ext_resource type="Script" uid="uid://2sq7xr0aae1m" path="res://Inventory/inventory_manager.gd" id="1_pfycv"]
+[ext_resource type="Script" uid="uid://ygv5k58lx5t0" path="res://Inventory/inventory.gd" id="2_5ocau"]
+[ext_resource type="Script" uid="uid://4l08iujywxdp" path="res://Inventory/equip_inventory_manager.gd" id="3_pfycv"]
+[ext_resource type="Script" uid="uid://dmarncx0m5f8y" path="res://Inventory/equip_slot.gd" id="4_5ocau"]
+
+[sub_resource type="GDScript" id="GDScript_5ocau"]
+script/source = "extends Label
+
+func _process(delta: float) -> void:
+	text = str(Performance.get_monitor(Performance.TIME_PROCESS )) + \"s \\r\" + str(Engine.get_frames_per_second()) + \"fps\"
+"
+
+[node name="InventoryManager" type="Control" unique_id=420397472]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pfycv")
+
+[node name="PlayerInventory" type="PanelContainer" parent="." unique_id=1908425645]
+custom_minimum_size = Vector2(384, 320)
+layout_mode = 0
+offset_left = 40.0
+offset_top = 24.0
+offset_right = 424.0
+offset_bottom = 344.0
+script = ExtResource("2_5ocau")
+
+[node name="ObjectInventory" type="PanelContainer" parent="." unique_id=763016758]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 425.0
+offset_right = 424.0
+offset_bottom = 585.0
+script = ExtResource("2_5ocau")
+
+[node name="EquipInventory" type="VBoxContainer" parent="." unique_id=970274458]
+layout_mode = 0
+offset_left = 689.0
+offset_top = 81.0
+offset_right = 839.0
+offset_bottom = 491.0
+theme_override_constants/separation = 0
+script = ExtResource("3_pfycv")
+
+[node name="Head" type="TextureRect" parent="EquipInventory" unique_id=724410605]
+texture_filter = 1
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+script = ExtResource("4_5ocau")
+max_items = 2
+slot_type = "Head"
+
+[node name="Chest" type="TextureRect" parent="EquipInventory" unique_id=1281102916]
+texture_filter = 1
+custom_minimum_size = Vector2(0, 140)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+script = ExtResource("4_5ocau")
+slot_type = "Torso"
+
+[node name="Hands" type="TextureRect" parent="EquipInventory" unique_id=1362751956]
+texture_filter = 1
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+script = ExtResource("4_5ocau")
+max_items = 1
+slot_type = "Hands"
+
+[node name="Legs" type="TextureRect" parent="EquipInventory" unique_id=346692742]
+texture_filter = 1
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+script = ExtResource("4_5ocau")
+max_items = 2
+slot_type = "Legs"
+
+[node name="Feet" type="TextureRect" parent="EquipInventory" unique_id=671053963]
+texture_filter = 1
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+script = ExtResource("4_5ocau")
+max_items = 3
+slot_type = "Feet"
+
+[node name="Label" type="Label" parent="." unique_id=2079836105]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.15400001
+anchor_bottom = 0.018000001
+offset_left = 1001.0
+offset_top = 25.0
+offset_right = 955.592
+offset_bottom = 68.336
+script = SubResource("GDScript_5ocau")
+
+[connection signal="mouse_entered" from="EquipInventory" to="EquipInventory" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="EquipInventory" to="EquipInventory" method="_on_mouse_exited"]
