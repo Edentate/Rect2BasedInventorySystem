@@ -1,0 +1,30 @@
+{
+  "1": {
+	"Name": "Item1",
+	"Description" : "Empty",
+	"Max Stack Size" :  4,
+	"Slot": "N/A",
+	"Texture Path" : "res://Inventory/Item/ItemAssets/TEMP_32x32.png"
+  },
+  "2": {
+	"Name": "Item2",
+	"Description" : "Empty",
+	"Max Stack Size" :  4,
+	"Slot": "Head",
+	"Texture Path" : "res://Inventory/Item/ItemAssets/TEMP_48x16.png"
+},
+  "3": {
+	"Name": "Item3",
+	"Description" : "Empty",
+	"Max Stack Size" :  8,
+	"Slot": "Torso",
+	"Texture Path" : "res://Inventory/Item/ItemAssets/TEMP_96x64.png"
+  },
+  "4": {
+	"Name": "Item4",
+	"Description" : "Empty",
+	"Max Stack Size" :  4,
+	"Slot": "Hands",
+	"Texture Path" : "res://icon.svg"
+  }
+}
